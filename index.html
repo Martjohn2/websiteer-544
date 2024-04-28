@@ -1,222 +1,232 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Lance Ajiro - Information</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>WangWeng Gaming</title>
   <style>
-    /* Global styles */
     body {
-      background-color: #000000;
-      color: #ffffff;
-      height: 100vh;
-      width: 100vw;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      font-family: 'Exo 2', sans-serif;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr;
-      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #000 url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc21zcDNycTFoa3JqNXdoY2Qwejc4cGMxYnc4MXZ2aDNlYWRxMHJodyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2dgFg4XbZ1RBlNey1i/giphy.gif') no-repeat center center fixed;
       background-size: cover;
+      animation: pulse 2s infinite alternate; /* Cool animation */
     }
-
-    .main-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 20px;
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
     }
-
-    .main-content section {
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      z-index: 1;
+    }
+    .logo {
+      max-width: 200px;
+      height: auto;
+      border-radius: 50%; /* Making the logo a sphere */
+    }
+    h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      animation: shine 2s infinite;
+      background: linear-gradient(45deg, #fff, #f0f8ff, #fff); /* Gradient for shining effect */
+      background-size: 200% 200%;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      text-shadow: 0 0 5px #fff; /* Text shadow for extra shine */
+    }
+    @keyframes shine {
+      0% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 100% 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 20px;
       text-align: center;
-      background-color: rgba(0, 242, 255, 0.1);
-      box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
-      border-radius: 10px;
-      transition: transform 0.3s ease;
+      color: #fff;
     }
 
-    .main-content section:hover {
-      transform: translateY(-5px);
-    }
-
-    /* Circular logo */
-    img.logo {
-      border-radius: 50%;
-      border: 4px solid #00f2ff;
-      box-shadow: 0 0 20px rgba(0, 242, 255, 0.8);
-    }
-
-    /* Button styling */
-    button {
-      background-color: #00f2ff;
-      color: #000000;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 18px;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #4a47a3;
-    }
-
-    /* Music player styling */
-    audio {
-      width: 100%;
+    /* Social Media Icons */
+    .social-icons {
       margin-top: 20px;
     }
-
-    /* Adjusted spacing for hobby list */
-    #hobbies ul {
-      padding-left: 0;
-      list-style-type: none;
+    .social-icons a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.3s ease-in-out;
     }
-
-    #hobbies li::before {
-      margin-right: 5px;
+    .social-icons img {
+      width: 40px; /* Adjust icon size */
+      height: auto;
     }
-
-    /* Profile card styling */
-    #profile-card {
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+    /* Copyright Disclaimer */
+    .copyright {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      animation: slideInLeft 2s forwards; /* Slide animation */
+    }
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    /* Music Disclaimer */
+    .music-disclaimer {
+      width: 80%;
+      max-width: 600px; /* Limiting the maximum width */
+      margin: 20px auto;
       text-align: center;
-      background-color: rgba(0, 242, 255, 0.1);
-      box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-      padding: 20px;
-      margin: 20px;
+      font-size: 0.8rem;
+      animation: slideInRight 2s forwards; /* Slide animation */
     }
-
-    #profile-card:hover {
-      transform: translateY(-5px);
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
-
-    #profile-card img {
-      border-radius: 50%;
-      border: 4px solid #00f2ff;
-      box-shadow: 0 0 20px rgba(0, 242, 255, 0.8);
+    /* Raining Effect */
+    .rain {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
     }
-
-    #profile-card h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
+    .rain:before {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 100px;
+      background: #fff;
+      animation: raindrop 2s linear infinite;
     }
-
-    #profile-card p {
-      font-size: 16px;
-      margin: 5px 0;
+    @keyframes raindrop {
+      0% {
+        transform: translateY(-100px) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
     }
-
-    /* Header styles */
-    header {
-      text-align: center;
-      padding: 20px;
-      border-bottom: 1px solid #00f2ff;
+    /* Secret Button */
+    .secret-button {
+      background-color: #fff;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
     }
-
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+    .secret-button:hover {
+      background-color: #000;
+      color: #fff;
     }
-
-    header p {
-      font-size: 20px;
+    /* Play Button */
+    .play-button {
+      background-color: #fff;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .play-button:hover {
+      background-color: #000;
+      color: #fff;
     }
   </style>
 </head>
-<body>
-
-  <div class="main-content">
-    <!-- Profile card section -->
-    <section id="profile-card">
-      <img src="https://graph.facebook.com/100089954918723/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662" alt="Profile Image" width="200" height="200" class="logo">
-      <h2>Lance Ajiro</h2>
-      <p>Age: 18</p>
-      <p>From: Calauag, Quezon</p>
-    </section>
-
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        My name is Lance Ajiro, and I am looking for a girlfriend. I am currently 18 years old, and I live in Calauag, Quezon.
-      </p>
-    </section>
-
-    <section id="hobbies">
-      <h2>Hobbies</h2>
-      <ul>
-        <li>Gaming</li>
-        <li>Watching Anime</li>
-        <li>Traveling</li>
-      </ul>
-    </section>
-
-    <section id="group-chat">
-      <h2>Join My Group Chat</h2>
-      <p>
-        If you want to interact with me, join the Ajiro Camp Group Chat by clicking
-        <a href="https://m.me/j/Aba0mwuz9PTv7bP9/" style="font-size: 14px; text-decoration: none; color: #00f2ff;">Join Now</a>
-      </p>
-    </section>
+<body oncontextmenu="return false">
+  <header>
+    <img src="WengLogo.png" alt="WangWeng Gaming Logo" class="logo">
+    <h1>WangWeng Gaming</h1>
+    <div class="social-icons">
+      <a href="https://m.youtube.com/@wangweng2468"><img src="youtube_icon.png" alt="YouTube"></a>
+      <a href="https://www.facebook.com/profile.php?id=61550816733412"><img src="facebook_icon.png" alt="Facebook"></a>
+    </div>
+  </header>
+  <section>
+    <p>You're a passionate male gamer who loves diving into MLBB battles, especially when playing with friends or creating content. Outside the virtual world, you're a dog lover, and your world is painted in shades of blue, your favorite color.</p>
+    <button class="secret-button" onclick="goToPrankPage()">Secret</button>
+    <button class="play-button" onclick="playMusic()">Play Music</button>
+  </section>
+  <!-- Copyright Disclaimer -->
+  <div class="copyright">
+    <p>&copy; 2024 WangWeng Gaming. All rights reserved.</p>
   </div>
-
-  <!-- Add background music -->
-  <audio controls loop autoplay id="background-music">
-    <!-- Add more <source> elements with different music files as needed -->
-    <source src="./music/lance.mp3" type="audio/mpeg">
-    <source src="./music/lance2.mp3" type="audio/mpeg">
-    <source src="./music/lance3.mp3" type="audio/mpeg">
-    <source src="./music/lance4.mp3" type="audio/mpeg">
-    <source src="./music/lance5.mp3" type="audio/mpeg">
-    <source src="./music/lance6.mp3" type="audio/mpeg">
-    <source src="./music/lance7.mp3" type="audio/mpeg">
-    <source src="./music/lance8.mp3" type="audio/mpeg">
-    <source src="./music/lance9.mp3" type="audio/mpeg">
-    <source src="./music/lance10.mp3" type="audio/mpeg">
-    <source src="./music/lance11.mp3" type="audio/mpeg">
-    <source src="./music/lance12.mp3" type="audio/mpeg">
-    <source src="./music/lance13.mp3" type="audio/mpeg">
-    <!-- Add more <source> elements with different music files as needed -->
+  <!-- Music Disclaimer -->
+  <div class="music-disclaimer">
+    <p>Background music used under license from [Music License Provider].</p>
+  </div>
+  <!-- Raining Effect -->
+  <div class="rain"></div>
+  <!-- Background Music -->
+  <audio id="backgroundMusic" onended="restartMusic()">
+    <source src="millisa.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-
-  <!-- JavaScript code to play music randomly -->
   <script>
-    const musicFiles = [
-      "./music/lance.mp3",
-      "./music/lance2.mp3",
-      "./music/lance3.mp3",
-      "./music/lance4.mp3",
-      "./music/lance5.mp3",
-      "./music/lance6.mp3",
-      "./music/lance7.mp3",
-      "./music/lance8.mp3",
-      "./music/lance9.mp3",
-      "./music/lance10.mp3",
-      "./music/lance11.mp3",
-      "./music/lance12.mp3",
-      "./music/lance13.mp3",
-      // Add more music files as needed
-    ];
-
-    function getRandomIndex(max) {
-      return Math.floor(Math.random() * max);
+    function goToPrankPage() {
+      window.location.href = "policy.html";
     }
-
-    function playRandomMusic() {
-      const audioElement = document.getElementById('background-music');
-      const randomIndex = getRandomIndex(musicFiles.length);
-      audioElement.src = musicFiles[randomIndex];
-      audioElement.play();
+    function playMusic() {
+      var audio = document.getElementById("backgroundMusic");
+      audio.play();
     }
-
-    // Play random music on page load and loop
-    playRandomMusic();
-    document.getElementById('background-music').addEventListener('ended', playRandomMusic);
+    function restartMusic() {
+      var audio = document.getElementById("backgroundMusic");
+      audio.currentTime = 0; // Reset the currentTime to start from the beginning
+      audio.play();
+    }
   </script>
 </body>
 </html>
